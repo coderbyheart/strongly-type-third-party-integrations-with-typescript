@@ -150,6 +150,51 @@ Trondheim, Norway
 
 ::::::::::::::
 
+# Book club: REST in Practice
+
+<https://restinpractice.com/>
+
+<https://coderbyheart.com/rest-in-practice-reading-guide>
+
+# Needs
+
+- Validate incoming data
+- Validate outgoing data
+- TypeScript
+
+# Why JSON schema
+
+# Alternatives?
+
+# Solution: `@sinclair/typebox`
+
+- JSON Schema based
+- In-memory validation
+- Fast `TypeCompiler` (~2x faster than AJV)
+
+# Validation basics
+
+Code demo
+
+- Writing validations
+- Reading errors
+
+# Best practices
+
+- Re-use and compose
+- Add titles, descriptions
+- Keep schema open (allow additional properties)
+
+# `validatedFetch()`
+
+<https://github.com/hello-nrfcloud/nrfcloud-api-helpers/blob/91fb1df46b50b3a1d85421ebd7a60f92c5e67707/src/api/validatedFetch.ts#L41>
+
+# In a frontend project
+
+<https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/src/utils/validatingFetch.ts#L42>
+
+# Bonus: type mock messages
+
 # Thank you
 
 <div class="text-center">
