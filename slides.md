@@ -193,6 +193,10 @@ Code demo
 
 <https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/src/utils/validatingFetch.ts#L42>
 
+# Mocking backends for frontends
+
+<https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/e2e-tests/lib/mock-backend/mock-backend.ts>
+
 # Bonus: type mock messages
 
 # Thank you
