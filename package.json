@@ -25,9 +25,9 @@
   "homepage": "https://github.com/coderbyheart/strongly-type-third-party-integrations-with-typescript#readme",
   "devDependencies": {
     "@bifravst/prettier-config": "1.1.1",
-    "@types/node": "22.9.0",
+    "@types/node": "22.9.3",
     "date-fns": "4.1.0",
-    "husky": "9.1.6",
+    "husky": "9.1.7",
     "lint-staged": "15.2.10",
     "live-server": "1.2.2",
     "nock": "14.0.0-beta.16",
@@ -41,6 +41,7 @@
   },
   "prettier": "@bifravst/prettier-config",
   "dependencies": {
-    "@sinclair/typebox": "0.34.2"
+    "@sinclair/typebox": "0.34.8",
+    "preact": "10.25.0"
   }
 }
