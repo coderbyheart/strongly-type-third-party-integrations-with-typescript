@@ -165,7 +165,10 @@ Trondheim, Norway
 
 # Why JSON schema
 
-# Alternatives?
+- Good enough
+- Widely known syntax for defining validations
+- Can easily be ported to other implementations
+- Can be adopted / read by other teams using other languages
 
 # Solution: `@sinclair/typebox`
 
@@ -175,10 +178,7 @@ Trondheim, Norway
 
 # Validation basics
 
-Code demo
-
-- Writing validations
-- Reading errors
+Code demo: `code/validator/validateWithTypeBox.ts`
 
 # Best practices
 
@@ -186,17 +186,20 @@ Code demo
 - Add titles, descriptions
 - Keep schema open (allow additional properties)
 
-# `validatedFetch()`
+# `validatingFetch()` for JSX
 
-<https://github.com/hello-nrfcloud/nrfcloud-api-helpers/blob/91fb1df46b50b3a1d85421ebd7a60f92c5e67707/src/api/validatedFetch.ts#L41>
-
-# In a frontend project
+- handle async validation
+- nicer syntax
 
 <https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/src/utils/validatingFetch.ts#L42>
 
-# Mocking backends for frontends
+Code demo: `code/preact/SIMUsageHistory.tsx`
 
-<https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/e2e-tests/lib/mock-backend/mock-backend.ts>
+# Code organization
+
+- [backend](https://github.com/hello-nrfcloud/backend) ↔
+  [proto](https://github.com/hello-nrfcloud/proto) ↔
+  [web](https://github.com/hello-nrfcloud/web)
 
 # Discussion
 

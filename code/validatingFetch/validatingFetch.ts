@@ -1,7 +1,7 @@
 import { type Static, type TSchema } from '@sinclair/typebox'
-import type { ProblemDetail } from '../ProblemDetail.js'
 import { formatTypeBoxErrors } from '../validator/formatTypeBoxErrors.js'
 import { validateWithTypeBox } from '../validator/validateWithTypeBox.js'
+import type { ProblemDetail } from './ProblemDetail.js'
 
 export type ResponseWithDetails = {
 	response: Response
