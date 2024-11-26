@@ -161,6 +161,7 @@ Trondheim, Norway
 - Validate incoming data
 - Validate outgoing data
 - TypeScript
+- Third-party endpoint (we cannot use gRPC/[tRPC](https://trpc.io/))
 
 # Why JSON schema
 
@@ -197,7 +198,11 @@ Code demo
 
 <https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/e2e-tests/lib/mock-backend/mock-backend.ts>
 
-# Bonus: type mock messages
+# Discussion
+
+Alternatives?
+
+- <https://zod.dev/>
 
 # Thank you
 
