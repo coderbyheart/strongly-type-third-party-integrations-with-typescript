@@ -24,15 +24,15 @@
   },
   "homepage": "https://github.com/coderbyheart/strongly-type-third-party-integrations-with-typescript#readme",
   "devDependencies": {
-    "@bifravst/prettier-config": "1.1.1",
-    "@types/node": "22.9.3",
+    "@bifravst/prettier-config": "1.1.8",
+    "@types/node": "22.15.3",
     "date-fns": "4.1.0",
     "husky": "9.1.7",
-    "lint-staged": "15.2.10",
+    "lint-staged": "15.5.1",
     "live-server": "1.2.2",
-    "nock": "14.0.0-beta.16",
-    "prettier": "3.3.3",
-    "tsx": "^4.19.2"
+    "nock": "14.0.4",
+    "prettier": "3.5.3",
+    "tsx": "^4.19.4"
   },
   "lint-staged": {
     "*.{yml,md,js,json}": [
@@ -41,7 +41,7 @@
   },
   "prettier": "@bifravst/prettier-config",
   "dependencies": {
-    "@sinclair/typebox": "0.34.8",
-    "preact": "10.25.0"
+    "@sinclair/typebox": "0.34.33",
+    "preact": "10.26.5"
   }
 }
