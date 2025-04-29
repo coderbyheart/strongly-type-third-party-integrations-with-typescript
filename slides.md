@@ -2,6 +2,7 @@
 title: "Strongly type third-party integrations with TypeScript"
 theme: white
 slideNumber: true
+revealjs-url: https://unpkg.com/reveal.js@4.6.1
 header-includes: |
   <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -150,12 +151,6 @@ Trondheim, Norway
 
 ::::::::::::::
 
-# Book club: REST in Practice
-
-<https://restinpractice.com/>
-
-<https://coderbyheart.com/rest-in-practice-reading-guide>
-
 # Needs
 
 - Validate incoming data
@@ -186,12 +181,30 @@ Code demo: `code/validator/validateWithTypeBox.ts`
 - Add titles, descriptions
 - Keep schema open (allow additional properties)
 
+# Validation of third-party API requests
+
+```typescript
+const maybeCellGeolocation = await c.post({
+  resource: "location/ground-fix",
+  payload,
+  requestSchema: groundFixRequestSchema,
+  responseSchema: locateResultSchema,
+});
+if ("error" in maybeCellGeolocation) {
+  return { located: false };
+}
+const { lat, lng, uncertainty } = maybeCellGeolocation;
+return { lat, lng, accuracy: uncertainty, located: true };
+```
+
+[location service request](https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-js/blob/1c0291120414d14487ef383b535407fa100ee5f3/third-party/nrfcloud.com/cellgeolocation.ts#L30-L44)
+
 # `validatingFetch()` for JSX
 
 - handle async validation
 - nicer syntax
 
-<https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/src/utils/validatingFetch.ts#L42>
+[source on GitHub](https://github.com/hello-nrfcloud/web/blob/926fb672bdb5fbad5fe1a04f244355d50e3cb5ee/src/utils/validatingFetch.ts#L42)
 
 Code demo: `code/preact/SIMUsageHistory.tsx`
 
@@ -201,11 +214,47 @@ Code demo: `code/preact/SIMUsageHistory.tsx`
   [proto](https://github.com/hello-nrfcloud/proto) ↔
   [web](https://github.com/hello-nrfcloud/web)
 
+# Input / Output validation
+
+```typescript
+import {
+  validateInput,
+  type ValidInput,
+} from "@hello.nrfcloud.com/lambda-helpers/validateInput";
+import { validateResponse } from "@hello.nrfcloud.com/lambda-helpers/validateResponse";
+import middy from "@middy/core";
+import { Type } from "@sinclair/typebox";
+import type { Context } from "aws-lambda";
+
+const InputSchema = Type.Object({});
+
+export const handler = middy()
+  .use(validateInput(InputSchema))
+  .use(validateResponse(Type.Object({})))
+  .handler(async (_, context: ValidInput<typeof InputSchema> & Context) => {
+    // ...
+  });
+```
+
+example:
+[validateInput](https://github.com/hello-nrfcloud/backend/blob/99c7fd7b6d38e48cf2c1a169184c03aab4eb1253/lambda/updateDeviceState.ts#L108-L115)
+&middot;
+[validateResponse](https://github.com/hello-nrfcloud/lambda-helpers/blob/fa7dc5ef396bc9152c1547302112a83c6fb7ef80/src/validateResponse.spec.ts#L38-L45)
+
+# Summary
+
+- Create validation for all your API requests and responses.
+- JSON schema is mostly good enough and well understood.
+- Get (monitoring) alerts about breaking API changes immediately.
+- Eliminate mistakes when creating test data.
+
 # Discussion
 
 Alternatives?
 
-- <https://zod.dev/>
+- [zod.dev](https://zod.dev/)
+- gRPC/[tRPC](https://trpc.io/)
+- ...
 
 # Thank you
 
