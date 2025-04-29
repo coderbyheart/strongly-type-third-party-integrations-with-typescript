@@ -82,7 +82,7 @@ header-includes: |
       font-size: 60px;
     }
     #title-slide h1:after {
-      content: "BartJS Trondheim";
+      content: "Nordic Testing Days Tallinn";
       display: block;
       color: #222;
       padding: 1rem;
@@ -91,7 +91,7 @@ header-includes: |
       font-size: 32px;
     }
     #title-slide:after {
-      content: "November 2024";
+      content: "May 2025";
       font-size: 22px;
       color: #191919;
       font-style: italic;
