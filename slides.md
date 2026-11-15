@@ -189,12 +189,12 @@ const maybeCellGeolocation = await c.post({
   payload,
   requestSchema: groundFixRequestSchema,
   responseSchema: locateResultSchema,
-});
+})
 if ("error" in maybeCellGeolocation) {
-  return { located: false };
+  return { located: false }
 }
-const { lat, lng, uncertainty } = maybeCellGeolocation;
-return { lat, lng, accuracy: uncertainty, located: true };
+const { lat, lng, uncertainty } = maybeCellGeolocation
+return { lat, lng, accuracy: uncertainty, located: true }
 ```
 
 [location service request](https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-js/blob/1c0291120414d14487ef383b535407fa100ee5f3/third-party/nrfcloud.com/cellgeolocation.ts#L30-L44)
@@ -220,20 +220,20 @@ Code demo: `code/preact/SIMUsageHistory.tsx`
 import {
   validateInput,
   type ValidInput,
-} from "@hello.nrfcloud.com/lambda-helpers/validateInput";
-import { validateResponse } from "@hello.nrfcloud.com/lambda-helpers/validateResponse";
-import middy from "@middy/core";
-import { Type } from "@sinclair/typebox";
-import type { Context } from "aws-lambda";
+} from "@hello.nrfcloud.com/lambda-helpers/validateInput"
+import { validateResponse } from "@hello.nrfcloud.com/lambda-helpers/validateResponse"
+import middy from "@middy/core"
+import { Type } from "@sinclair/typebox"
+import type { Context } from "aws-lambda"
 
-const InputSchema = Type.Object({});
+const InputSchema = Type.Object({})
 
 export const handler = middy()
   .use(validateInput(InputSchema))
   .use(validateResponse(Type.Object({})))
   .handler(async (_, context: ValidInput<typeof InputSchema> & Context) => {
     // ...
-  });
+  })
 ```
 
 example:
